@@ -29,37 +29,49 @@ def input_instruction():
 
 
 def play_dmitry():
-    instruction = input_instruction()
-    print(instruction)
-    if "play" in instruction:
-        song = instruction.replace('play', " ")
-        talk('playing' + song)
-        pywhatkit.playonyt(song)
+    while True:
+        instruction = input_instruction()
+        print(instruction)
 
-    elif "time" in instruction:
-        time = datetime.datetime.now().strftime('%I:%Mp')
-        print(time)
-        talk('Current time' + time)
+        if "play" in instruction:
+            song = instruction.replace('play', " ")
+            talk('playing' + song)
+            pywhatkit.playonyt(song)
+            continue
 
-    elif "date" in instruction:
-        date = datetime.datetime.now().strftime('%d /%m /%Y')
-        print(date)
-        talk("Today is date" + date)
+        elif "time" in instruction:
+            time = datetime.datetime.now().strftime('%I:%Mp')
+            print(time)
+            talk('Current time' + time)
+            continue
 
-    elif "how are you" in instruction:
-        talk('I am fine thanks, how about you')
+        elif "date" in instruction:
+            date = datetime.datetime.now().strftime('%d /%m /%Y')
+            print(date)
+            talk("Today is date" + date)
+            continue
+        elif "how are you" in instruction:
+            talk('I am fine thanks, how about you')
 
-    elif "name" in instruction:
-        talk('I am Dmitry, What can I do for you')
+        elif "name" in instruction:
+            talk('I am Dmitry, What can I do for you')
+            continue
 
-    elif "who is" in instruction:
-        human = instruction.replace('who is', " ")
-        info = wikipedia.summary(human, 1)
-        print(info)
-        talk(info)
+        elif "who is" in instruction:
+            human = instruction.replace('who is', " ")
+            info = wikipedia.summary(human, 1)
+            print(info)
+            talk(info)
+            continue
 
-    else:
-        talk('Please repeat')
+        elif "bye" in instruction:
+            talk("Good Bye. Have a nice day!!!")
+            exit()
+        else:
+            talk('Please repeat')
 
 
 play_dmitry()
+
+# if __name__ == '__main__':
+#     play_dmitry()

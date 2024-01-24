@@ -1,5 +1,5 @@
-import speech_recognition as speechrecognition
-import pyttsx3  # package to respond back to our speech
+import speech_recognition as speechrecognition # To convert speech into text
+import pyttsx3  # To convert text into speech
 import pywhatkit
 import datetime
 import wikipedia
